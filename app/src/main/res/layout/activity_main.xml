@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="268dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="612dp"
+        android:background="#FF008D"
+        android:backgroundTint="@color/magnific"
+        android:text="Liste des Promotion"
+        app:backgroundTint="@color/magnific"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="L'APPLI"
+        android:textColor="#FF0000"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <Button
+        android:id="@+id/qrbtn"
+        android:layout_width="251dp"
+        android:layout_height="70dp"
+        android:text="Scan and Store"
+        android:textSize="20sp"
+        android:textColor="#000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.278" />
+
+    <TextView
+        android:id="@+id/qrtext"
+        android:layout_width="293dp"
+        android:layout_height="47dp"
+        android:text="Test"
+        android:textSize="20sp"
+        android:textColor="#000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qrbtn"
+        app:layout_constraintVertical_bias="0.183" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
