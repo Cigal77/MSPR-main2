@@ -32,6 +32,10 @@ public class PromoActivity extends AppCompatActivity {
                 Coupon coupon = (Coupon) o;
                 Toast.makeText(PromoActivity.this, "Selected :" + " " + coupon, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), DetailitemActivity.class);
+                intent.putExtra("ImageName", ((Coupon) o).getImageName());
+                intent.putExtra("ImageTitle", ((Coupon) o).getTitle());
+                intent.putExtra("ImageReduction", ((Coupon) o).getReduction());
+                startActivity(intent);
             }
         });
     }
