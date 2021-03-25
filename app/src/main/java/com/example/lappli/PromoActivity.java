@@ -2,6 +2,7 @@ package com.example.lappli;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,6 +31,7 @@ public class PromoActivity extends AppCompatActivity {
                 Object o = listView.getItemAtPosition(position);
                 Coupon coupon = (Coupon) o;
                 Toast.makeText(PromoActivity.this, "Selected :" + " " + coupon, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), DetailitemActivity.class);
             }
         });
     }
