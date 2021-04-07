@@ -14,7 +14,7 @@ import java.util.List;
 public class PromoActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_promo);
 
@@ -32,11 +32,15 @@ public class PromoActivity extends AppCompatActivity {
                 Coupon coupon = (Coupon) o;
                 Toast.makeText(PromoActivity.this, "Selected :" + " " + coupon, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), DetailitemActivity.class);
+                intent.putExtra("ImageName", coupon.getImageName());
+                intent.putExtra("ImageTitle", coupon.getTitle());
+                intent.putExtra("ImageReduction", coupon.getReduction());
+                startActivity(intent);
             }
         });
     }
 
-    private List<Coupon> getListData() {
+    public List<Coupon> getListData() {
         List<Coupon> list = new ArrayList<Coupon>();
         Coupon reduc1 = new Coupon("Réduction 1", "lotr1", 50);
         Coupon reduc2 = new Coupon("Réduction 2", "lotr2", 25);

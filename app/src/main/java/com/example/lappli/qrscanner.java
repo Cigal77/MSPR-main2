@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,12 +21,16 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
+import java.util.List;
+
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class qrscanner extends AppCompatActivity implements ZXingScannerView.ResultHandler
 {
     ZXingScannerView scannerView;
     DatabaseReference dbref;
+    PromoActivity promoActivity = new PromoActivity();
+    List<Coupon> list = promoActivity.getListData();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -61,7 +68,19 @@ public class qrscanner extends AppCompatActivity implements ZXingScannerView.Res
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            MainActivity.qrtext.setText("Data inserted Successfully");
+                            System.out.println("QR: " + data);
+                            for(int i=0; i<list.size(); i++){
+                                System.out.println("Titre promo: " + list.get(i).getTitle());
+                                if(data.equals(list.get(i).getTitle())){
+                                    Coupon coupon = (Coupon) list.get(i);
+
+                                    Intent intent = new Intent(getApplicationContext(), DetailitemActivity.class);
+                                    intent.putExtra("ImageName", coupon.getImageName());
+                                    intent.putExtra("ImageTitle", coupon.getTitle());
+                                    intent.putExtra("ImageReduction", coupon.getReduction());
+                                    startActivity(intent);
+                                }
+                            }
                             onBackPressed();
                         }
                     });
