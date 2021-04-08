@@ -41,13 +41,13 @@ public class PromoActivity extends AppCompatActivity {
     }
 
     public List<Coupon> getListData() {
-        List<Coupon> list = new ArrayList<Coupon>();
+        List<Coupon> listCoupon = new ArrayList<Coupon>();
         Coupon reduc1 = new Coupon("Réduction 1", "lotr1", 50);
         Coupon reduc2 = new Coupon("Réduction 2", "lotr2", 25);
 
-        list.add(reduc1);
-        list.add(reduc2);
+        listCoupon.add(reduc1);
+        listCoupon.add(reduc2);
 
-        return list;
+        return listCoupon;
     }
 }
